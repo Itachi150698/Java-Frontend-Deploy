@@ -1,0 +1,143 @@
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+
+  .product-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #fff;
+    height: 500px; /* Set a fixed height for the product item */
+    max-width: 100%;
+
+    .pi-img-wrapper {
+      width: 100%;
+      max-width: 300px; /* Set a max width for the image wrapper */
+      height: 300px; /* Set a fixed height */
+      overflow: hidden;
+      margin-bottom: 15px;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensures the image covers the entire area while maintaining aspect ratio */
+      }
+
+      div {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        background: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+      }
+
+      &:hover div {
+        display: block;
+      }
+    }
+
+    h3 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      height: 60px; /* Increased height to allow for two lines of text */
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2; /* Limit the text to two lines */
+      text-overflow: ellipsis;
+      word-wrap: break-word; /* Ensure words wrap within the container */
+    }
+
+    .pi-price {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+      color: #ff4c3b;
+    }
+
+    .pi-price  {
+      font-family: Arial, sans-serif; /* Or another font that supports the INR symbol */
+    }
+
+
+.price {
+  font-family: Arial, sans-serif; /* Or another font that supports the INR symbol */
+}
+
+
+    .add2cart {
+      background-color: #ff4c3b;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #e03b2c;
+      }
+    }
+  }
+}
+
+.list-group-item a {
+  cursor: pointer; /* Add pointer cursor */
+}
+
+.list-group-item a:hover {
+  text-decoration: underline; /* Optional: Add underline on hover for better visibility */
+}
+
+.pi-img-wrapper {
+  position: relative; /* Ensure the icon is positioned relative to the image wrapper */
+  width: 100%;
+  max-width: 300px;
+  height: 300px;
+  overflow: hidden;
+  margin-bottom: 15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  div {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  &:hover div {
+    display: block;
+  }
+}
+
+.wishlist-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: #fff; /* White color to make it visible */
+  font-size: 24px;
+  z-index: 10; /* Ensure it stays on top */
+  cursor: pointer;
+}
+
+.wishlist-added {
+  color: red; /* Change color when added to wishlist */
+}

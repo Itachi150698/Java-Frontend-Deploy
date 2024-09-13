@@ -1,0 +1,217 @@
+/* Ensure the carousel container has relative positioning */
+#category-carousel {
+  position: relative;
+  background-color: #f0f0f0; /* Change to your desired background color */
+  padding: 20px; /* Optional: Adds padding around the carousel */
+  margin: 0 auto; /* Center align carousel in container */
+}
+
+/* Ensure the carousel controls are positioned outside the carousel */
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  width: 5%; /* Adjust width as needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: #fff; /* Arrow color */
+  border: none;
+  transform: translateY(-50%);
+}
+
+.carousel-control.left {
+  left: -5%; /* Moves the left arrow outside */
+}
+
+.carousel-control.right {
+  right: -5%; /* Moves the right arrow outside */
+}
+
+/* Ensure the carousel-inner takes full width */
+.carousel-inner {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Ensure each slide takes full width */
+.carousel-inner .item {
+  width: 100%;
+}
+
+/* Style the image wrapper to contain the image properly */
+.pi-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 150px; /* Increase the height to make images larger */
+}
+
+.pi-img-wrapper img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Ensure the image covers the container without stretching */
+  transform: translate(-50%, -50%); /* Center the image */
+}
+
+/* Adjust the product item to be centered and ensure proper sizing */
+.product-item {
+  text-align: center;
+}
+/* Ensure the carousel container has a specific height */
+.page-slider {
+  position: relative;
+  height: 350px; /* Adjust the height as needed */
+  overflow: hidden;
+}
+
+/* Adjust the carousel items to fit within the new height */
+.carousel-inner .item {
+  height: 100%;
+}
+
+.carousel-inner .item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.carousel-position-four, .carousel-position-five, .carousel-position-six, .carousel-position-seven {
+  padding: 20px; /* Optional: Adjust padding to fit content */
+}
+
+.carousel-control.carousel-control-shop {
+  top: 50%;
+  width: 5%; /* Adjust the width as needed */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: #fff; /* Arrow color */
+  border: none;
+  transform: translateY(-50%);
+}
+
+.carousel-control.carousel-control-shop.left {
+  left: -5%; /* Move the left arrow outside */
+}
+
+.carousel-control.carousel-control-shop.right {
+  right: -5%; /* Move the right arrow outside */
+}
+
+/* Carousel Item Background Images */
+
+.carousel-slider .carousel-item-four {
+    background: url(../../../../assets/css-1/assets/Image-final/craftsmen.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-slider .carousel-item-five {
+    background: url(../../../../assets/css-1/assets/Image-final/handicraft.png);
+    background-size: cover;
+}
+
+.carousel-slider .carousel-item-six {
+    background: url(../../../../assets/css-1/assets/Image-final/textile.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-slider .carousel-item-seven {
+    background: url(../../../../assets/css-1/assets/Image-final/jewellery-c.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-slider .carousel-item-one {
+    background: url(../../../../assets/css-1/assets/Image-final/craftsmen.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-slider .carousel-item-two {
+    background: url(../../../../assets/css-1/assets/Image-final/craftsmen.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-slider .carousel-item-three {
+    background: url(../../../../assets/css-1/assets/Image-final/craftsmen.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-slider .carousel-item-eight {
+    background: url(../../../../assets/css-1/assets/Image-final/craftsmen.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+/* General styles for the carousel */
+.carousel-slider {
+    position: relative;
+}
+
+/* Text styling inside carousel items */
+.carousel-slider .carousel-title-v3,
+.carousel-slider .carousel-subtitle-v2 {
+    position: relative;
+    z-index: 1; /* Ensure text is above the overlay */
+    color: #fff; /* Default text color for better readability */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow for better visibility */
+}
+
+/* Title styling */
+.carousel-slider .carousel-title-v3 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Ensures title is in uppercase */
+}
+
+/* Subtitle styling */
+.carousel-slider .carousel-subtitle-v2 {
+    font-size: 1.2em;
+}
+
+/* Overlay for better text visibility */
+.carousel-slider .carousel-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Black overlay with 40% opacity */
+    z-index: 0; /* Overlay is behind the text */
+}
+
+/* Adjust positioning for carousel items */
+.carousel-slider .carousel-item {
+    position: relative;
+    color: #fff; /* Ensure text color contrasts with overlay */
+}
+
+/* Ensure the overlay is behind the text and not interfering with controls */
+.carousel-slider .carousel-item .carousel-position-four {
+    position: relative;
+    z-index: 1;
+}
+
+/* Controls styling */
+.carousel-control {
+    color: #fff; /* Control icon color */
+    opacity: 0.7; /* Slightly transparent controls */
+}
+
+.carousel-control:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+/* Image styling in carousel */
+.carousel-slider .carousel-position-five {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}

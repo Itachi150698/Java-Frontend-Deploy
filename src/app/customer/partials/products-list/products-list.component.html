@@ -1,0 +1,167 @@
+<div class="title-wrapper">
+  <div class="container">
+    <div class="container-inner" *ngIf="filteredProducts.length > 0">
+      <h1>
+        <span>{{ filteredProducts[0].categoryName }}</span> CATEGORY
+      </h1>
+      <em>Over {{ filteredProducts.length }} Items are available here</em>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="container">
+    <ul class="breadcrumb">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="">Store</a></li>
+      <li class="active">
+        {{
+          filteredProducts.length > 0 ? filteredProducts[0].categoryName : ""
+        }}
+      </li>
+    </ul>
+
+    <!-- BEGIN SIDEBAR & CONTENT -->
+    <div class="row margin-bottom-40">
+      <!-- BEGIN SIDEBAR -->
+      <div class="sidebar col-md-3 col-sm-5">
+        <ul class="list-group margin-bottom-25 sidebar-menu">
+          <li
+            *ngFor="let category of categories"
+            class="list-group-item clearfix"
+          >
+            <a (click)="filterByCategory(category.id)"
+              ><i class="fa fa-angle-right"></i> {{ category.name }}</a
+            >
+          </li>
+        </ul>
+
+        <div class="sidebar-filter margin-bottom-25">
+          <h2>Filter</h2>
+
+          <!-- Availability Filter -->
+          <h3>Availability</h3>
+          <div class="checkbox-list">
+            <label>
+              <input type="checkbox" (change)="filterByAvailability(true)" /> In
+              Stock
+            </label>
+            <label>
+              <input type="checkbox" (change)="filterByAvailability(false)" />
+              Not Available
+            </label>
+            <label>
+              <input type="checkbox" (change)="filterByAvailability(null)" />
+              All
+            </label>
+          </div>
+
+          <!-- Price Filter -->
+          <h3>Price</h3>
+          <p>
+            <label for="minPrice">Min Price:</label>
+            <input
+              type="number"
+              id="minPrice"
+              placeholder="Eg.100"
+              [(ngModel)]="minPrice"
+            />
+          </p>
+          <p>
+            <label for="maxPrice">Max Price:</label>
+            <input
+              type="number"
+              id="maxPrice"
+              placeholder="Eg.200"
+              [(ngModel)]="maxPrice"
+            />
+          </p>
+          <button (click)="filterByPrice(minPrice, maxPrice)">
+            Apply Price Filter</button
+          ><br /><br />
+
+          <!-- Reset Filters Button -->
+          <button (click)="resetFilters()">Reset Filters</button>
+
+          <div class="sidebar-products clearfix">
+            <h2>Bestsellers</h2>
+            <div
+              class="item"
+              *ngFor="let product of bestsellers"
+              (click)="viewProductDetail(product.id)"
+              style="cursor: pointer"
+            >
+              <a
+                ><img [src]="product.processedImg" alt="{{ product.name }}"
+              /></a>
+              <h3>
+                <a>{{ product.name }}</a>
+              </h3>
+              <div class="price">{{ product.price | currency:'INR':true:'1.2-2' }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- END SIDEBAR -->
+
+      <!-- BEGIN CONTENT -->
+      <div class="col-md-9 col-sm-7">
+        <!-- BEGIN PRODUCT LIST -->
+        <div class="row product-list">
+          <div *ngIf="filteredProducts.length > 0; else noProducts">
+            <div
+              *ngFor="let product of filteredProducts"
+              class="col-md-4 col-sm-6 col-xs-12"
+            >
+              <div class="product-item">
+                <div class="pi-img-wrapper">
+                  <img
+                    [src]="product.processedImg"
+                    class="img-responsive"
+                    alt="{{ product.name }}"
+                  />
+                 <!-- Wishlist icon -->
+<a
+  (click)="toggleWishlist(product.id)"
+  [ngClass]="{ 'wishlist-added': wishlist.has(product.id) }"
+  class="wishlist-icon"
+>
+  <i
+    class="fa"
+    [ngClass]="{
+      'fa-heart': wishlist.has(product.id),
+      'fa-heart-o': !wishlist.has(product.id)
+    }"
+  ></i>
+</a>
+
+                </div>
+                <h3>
+                  <a
+                    (click)="viewProductDetail(product.id)"
+                    style="cursor: pointer"
+                    >{{ product.name }}</a
+                  >
+                </h3>
+                <div class="pi-price">{{ product.price | currency:'INR':true:'1.2-2'  }}</div>
+                <div class="product-actions">
+                  <a  class="btn btn-default add2cart"
+                     (click)="addToCart(product.id)">Add to cart</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template #noProducts>
+            <div class="col-md-12">
+              <p>No products found for this category.</p>
+            </div>
+          </ng-template>
+        </div>
+        <!-- END PRODUCT LIST -->
+      </div>
+      <!-- END CONTENT -->
+    </div>
+    <!-- END SIDEBAR & CONTENT -->
+  </div>
+</div>

@@ -1,0 +1,147 @@
+<!-- <div *ngIf="cartItems.length > 0; else emptyCart">
+  <div class="cart-container">
+    <div class="cart-item" *ngFor="let item of cartItems">
+      <div class="product-info">
+        <div class="product-image">
+          <img [src]="item.processedImg" alt="product-image">
+        </div>
+        <div class="product-details">
+          <div class="item-row">
+            <div class="item-name" [ngClass]="{'highlight': item.highlighted}">
+              {{item.productName}}
+            </div>
+            <div class="item-price">{{item.price | currency}}</div>
+            <div class="quantity-controls">
+              <button mat-icon-button [disabled]="item.quantity == 1" (click)="decreaseQuantity(item.productId)">
+                <mat-icon>remove_circle_outline</mat-icon>
+              </button>
+              <span class="quantity">{{item.quantity}}</span>
+              <button mat-icon-button (click)="increaseQuantity(item.productId)">
+                <mat-icon>add_circle_outline</mat-icon>
+              </button>
+            </div>
+            <button mat-icon-button color="warn" (click)="removeFromCart(item.productId)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="total-price">
+      Total Amount: {{order.totalAmount | currency}}
+    </div>
+    <div class="total-price">
+      Amount: {{order.amount | currency}}
+    </div>
+    <div class="total-price" *ngIf="order.couponName != null">
+      Coupon Applied: {{order.couponName}}
+    </div>
+    <div>
+      <button mat-raised-button color="primary" (click)="placeOrder()">Place Order</button>
+    </div>
+  </div>
+
+  <div class="container" *ngIf="order.couponName == null">
+    <form [formGroup]="couponForm" (ngSubmit)="applyCoupon()">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Code</mat-label>
+        <input matInput type="text" placeholder="Code" formControlName="code">
+        <mat-error *ngIf="couponForm.get('code')?.hasError('required')">This input is required!</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Apply Coupon</button>
+    </form>
+  </div>
+</div>
+
+<ng-template #emptyCart>
+  <div class="empty-cart">
+    <mat-icon class="icon">remove_shopping_cart</mat-icon>
+    <span>Nothing to see here.</span>
+  </div>
+</ng-template> -->
+
+    <div class="main">
+      <div class="container">
+        <!-- BEGIN SIDEBAR & CONTENT -->
+        <div class="row margin-bottom-40" *ngIf="cartItems.length > 0; else emptyCart">
+          <!-- BEGIN CONTENT -->
+          <div class="col-md-12 col-sm-12">
+            <h1>Shopping cart</h1>
+            <div class="goods-page">
+              <div class="goods-data clearfix">
+                <div class="table-wrapper-responsive">
+                <table summary="Shopping cart">
+                  <tr>
+                    <th class="goods-page-image">Image</th>
+                    <th class="goods-page-description">Description</th>
+                    <th class="goods-page-quantity">Quantity</th>
+                    <th class="goods-page-price">Unit price</th>
+                    <th class="goods-page-total" colspan="2">Total</th>
+                  </tr>
+                  <tr  *ngFor="let item of cartItems">
+                    <td class="goods-page-image">
+                      <a href="javascript:;"><img [src]="item.processedImg" alt="product-image"></a>
+                    </td>
+                    <td class="goods-page-description">
+                      <h3><a href="javascript:;">{{item.productName}}</a></h3>
+                      <p><strong>Item 1</strong></p>
+                      <em>More info is here</em>
+                    </td>
+                    <td class="goods-page-quantity">
+                      <div class="quantity-controls">
+                       <button mat-icon-button [disabled]="item.quantity == 1" (click)="decreaseQuantity(item.productId)">
+                <mat-icon>remove_circle_outline</mat-icon>
+              </button>
+              <span class="quantity">{{item.quantity}}</span>
+              <button mat-icon-button (click)="increaseQuantity(item.productId)">
+                <mat-icon>add_circle_outline</mat-icon>
+              </button>
+
+                      </div>
+                    </td>
+                    <td class="goods-page-price">
+                      <strong><span>$</span>{{item.price}}</strong>
+                    </td>
+                    <td class="goods-page-total">
+                      <strong><span>$</span>{{order.amount}}</strong>
+                    </td>
+                    <td class="del-goods-col">
+                      <a class="del-goods" href="javascript:;" (click)="removeFromCart(item.productId)">&nbsp;</a>
+                    </td>
+                  </tr>
+                </table>
+                </div>
+
+                <div class="shopping-total">
+                  <ul>
+                    <li>
+                      <em>Sub total</em>
+                      <strong class="price"><span>$</span>{{order.amount}}</strong>
+                    </li>
+                    <li>
+                      <em>Coupon</em>
+                      <strong class="price"><span>$</span>3.00</strong>
+                    </li>
+                    <li class="shopping-total-price">
+                      <em>Total</em>
+                      <strong class="price"><span>$</span>{{order.totalAmount}}</strong>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <button class="btn btn-default" type="submit">Continue shopping <i class="fa fa-shopping-cart"></i></button>
+              <button class="btn btn-primary" type="submit">Checkout <i class="fa fa-check"></i></button>
+            </div>
+          </div>
+          <!-- END CONTENT -->
+        </div>
+        <!-- END SIDEBAR & CONTENT -->
+      </div>
+    </div>
+<ng-template #emptyCart>
+  <div class="empty-cart">
+    <mat-icon class="icon">remove_shopping_cart</mat-icon>
+    <span>Nothing to see here.</span>
+  </div>
+</ng-template>

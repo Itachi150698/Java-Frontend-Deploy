@@ -1,0 +1,28 @@
+mat-error{
+  color: red;
+}
+
+::ng-deep .toast-success {
+  background-color: #28a745 !important; // Green
+  color: #ffffff !important; // White text
+}
+
+::ng-deep .toast-error {
+  background-color: #dc3545 !important; // Red
+  color: #ffffff !important; // White text
+}
+
+::ng-deep .toast-info {
+  background-color: #17a2b8 !important; // Blue
+  color: #ffffff !important; // White text
+}
+
+::ng-deep .toast-warning {
+  background-color: #ffc107 !important; // Yellow
+  color: #000000 !important; // Black text
+}
+
+::ng-deep .toast {
+  border-radius: 8px; // Rounded corners
+  font-size: 14px; // Adjust font size if needed
+}
